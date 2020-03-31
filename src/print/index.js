@@ -8,7 +8,8 @@ const print = async (list) => {
         if(port.length != 0){
             const printSerialPort = require('./print-serialport');
             const { path, comName } = port[0];
-            await printSerialPort(list, path, comName)
+            const osPort = process.platform === 'darwin' ? comName : path
+            await printSerialPort(list, osPort)
         } else {
             // const printUSB = require('./print-usb');
             // await printUSB(file);

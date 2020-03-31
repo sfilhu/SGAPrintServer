@@ -2,7 +2,7 @@
 const routes  = require('express').Router();
 const storage = require('electron-json-storage');
 const uniqid  = require('uniqid');
-const print   = require('./print')
+const print   = require('./print');
 
 // 
 //  GET
