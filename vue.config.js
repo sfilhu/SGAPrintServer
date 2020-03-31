@@ -16,13 +16,23 @@ module.exports = {
       // If you are using Yarn Workspaces, you may have multiple node_modules folders
       // List them all here so that VCP Electron Builder can find them
       nodeModulesPath: ['../../node_modules', './node_modules'],
-      // extraResources: ['cert.pem'],
-      extraResources: ["./extraResources/**"],
+     
+      extraResources: [
+        {
+          "from": "./extraResources",
+          "to": "extraResources",
+          "filter": ["**/*"]
+        },
+      ],
+      
       builderOptions: {
         appId: 'sgaprinterserver.com',
         mac: {
           icon: 'public/logo-512x512.png',
           target: ["default"]
+        },
+        win: {
+          icon: 'public/logo-256x256.png'
         }
       }
     }

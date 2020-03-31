@@ -4,11 +4,9 @@ const today = require('./format-date')
 const axios =  require('axios')
 
 // console.log(escpos.SerialPort)
-const printSerialPort = async (list, path, comName) => {
-    console.log(list)
-    console.log(path)
-    console.log(comName)
-    const serialDeviceOnWindows = new escpos.SerialPort(comName);
+const printSerialPort = async (list, osPort) => {
+   
+    const serialDeviceOnWindows = new escpos.SerialPort(osPort);
     const options = { encoding: "ISO 8859-1" }
     const printer = new escpos.Printer(serialDeviceOnWindows, options);
 
