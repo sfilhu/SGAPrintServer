@@ -27,6 +27,7 @@ module.exports = {
       
       builderOptions: {
         appId: 'sgaprinterserver.com',
+        files: ['ssl/*'],
         mac: {
           icon: 'public/logo-512x512.png',
           target: ["default"]

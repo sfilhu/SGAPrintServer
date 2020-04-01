@@ -5,21 +5,21 @@ import App from './App.vue'
 
 require('dotenv').config();
 const express  = require('express');
-// const fs       = require('fs');
-// const path     = require('path');
+const fs       = require('fs');
+const path     = require('path');
 const morgan   = require('morgan');
 const cors     = require('cors');
 const routes   = require('./routes');
 const app      = new express();
-// const dirname = fs.realpathSync('.');
-// console.log(dirname)
+const dirname = fs.realpathSync('.');
+console.log(dirname)
 // console.log(__dirname)
-// console.log(process.cwd())
+console.log(process.cwd())
 
-// const httpsOpt = {
-//   cert : fs.readFileSync(path.join(dirname, 'extraResources/cert.pem')),
-//   key  : fs.readFileSync(path.join(dirname, 'extraResources/key.pem'))
-// }
+const httpsOpt = {
+  cert : fs.readFileSync(path.join(dirname, 'extraResources/cert.pem')),
+  key  : fs.readFileSync(path.join(dirname, 'extraResources/key.pem'))
+}
 
 app
 .use(cors())
@@ -33,7 +33,7 @@ app
 })
 .use(routes)
 
-const server = require('http').Server(app);
+const server = require('https').Server(httpsOpt, app);
 server.listen(3001)
 
 Vue.config.productionTip = false
