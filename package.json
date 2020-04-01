@@ -23,6 +23,7 @@
     "electron-json-storage": "^4.1.8",
     "escpos": "^3.0.0-alpha.3",
     "escpos-serialport": "^3.0.0-alpha.2",
+    "escpos-usb": "^3.0.0-alpha.2",
     "express": "^4.17.1",
     "morgan": "^1.10.0",
     "node-sass": "^4.13.1",

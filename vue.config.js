@@ -32,7 +32,7 @@ module.exports = {
           target: ["default"]
         },
         win: {
-          icon: 'public/logo-256x256.png'
+          icon: 'public/logo-256x256.ico'
         }
       }
     }

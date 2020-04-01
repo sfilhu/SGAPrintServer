@@ -11,9 +11,9 @@ const print = async (list) => {
             const osPort = process.platform === 'darwin' ? comName : path
             await printSerialPort(list, osPort)
         } else {
-            // const printUSB = require('./print-usb');
-            // await printUSB(file);
-            // return true
+            const printUSB = require('./print-usb');
+            await printUSB(list);
+            return true
         }
     })
 };

@@ -7,7 +7,7 @@ const printer = new escpos.Printer(device, options);
 
 const today = require('./format-date')
 
-const printUSB = (file) => {
+const printUSB = (list) => {
     device.open( function(erro) {
         if(!erro) {
             printer
@@ -20,12 +20,12 @@ const printUSB = (file) => {
             .text(' ')
             .align('LT')
             .text(`Codigo.: ${'1234567'}`)
-            .text(`Cliente: ${'Jonas'}`)
+            .text(`Cliente: ${list.name}`)
             .text(`Agente.: ${'Banca Veja 3'}`)
             .text(`Fone...: ${'(81) 9999-999'}`)
             .text(`Tipo...: ${'Casadinha'}`)
             .text('-----------------------------')
-            .tableCustom(file)
+            .tableCustom(list.data[0])
             .align('LT')
             .text(`Qtd Eventos.....: ${'2'}`)
             .text(`Multiplicador...: ${'16'}`)
