@@ -21,6 +21,10 @@ const app      = new express();
 //   key  : fs.readFileSync(path.join(dirname, 'extraResources/key.pem'))
 // }
 
+const dist = require('electron').remote.app;
+
+console.log(dist.getAppPath())
+
 app
 .use(cors())
 .use(express.json())
