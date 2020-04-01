@@ -11,6 +11,7 @@ const morgan   = require('morgan');
 const cors     = require('cors');
 const routes   = require('./routes');
 const app      = new express();
+
 const dist     = require('electron').remote.app;
 const dirDocuments = dist.getPath('documents');
 
