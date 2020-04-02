@@ -28,7 +28,6 @@
     "morgan": "^1.10.0",
     "node-sass": "^4.13.1",
     "nodemon": "^2.0.2",
-    "remote": "^0.2.6",
     "sass-loader": "^8.0.2",
     "serialport": "^7.1.5",
     "uniqid": "^5.2.0",
