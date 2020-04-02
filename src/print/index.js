@@ -8,6 +8,7 @@ const print = async (list) => {
         if(port.length != 0){
             const printSerialPort = require('./print-serialport');
             const { path, comName } = port[0];
+            console.log(process.platform)
             const osPort = process.platform === 'darwin' ? comName : path
             await printSerialPort(list, osPort)
         } else {

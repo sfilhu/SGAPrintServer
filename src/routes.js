@@ -9,6 +9,7 @@ const print   = require('./print');
 // 
 routes.get('/cupons', async (req, res) => {
     storage.get('cupons', function(error, data) {
+        
         if (error) throw error;
         return res.json({ 'cupons': data })
     });
@@ -21,7 +22,7 @@ routes.get('/cupons', async (req, res) => {
 routes.post('/cupons', async (req, res) => {
     const { data, name } = req.body
 
-
+    console.log({ data, name })
 
     storage.get('cupons', function(error, listCupons) {
         if (error) throw error;
