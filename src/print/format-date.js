@@ -31,9 +31,9 @@ const stringDate = (date_custom) => {
     const yaer    = date.getFullYear()
     const hour    = date.getHours()
     const minutes = date.getMinutes()
-    const dayWeek = daysOfWeek[date.getDay()]
-    const month   = months[date.getMonth()]
-    const stg = `${dayWeek}, ${day} ${month} ${yaer} ${hour}:${minutes}`
+    // const dayWeek = daysOfWeek[date.getDay()]
+    // const month   = months[date.getMonth()]
+    const stg = `${day}/${date.getMonth() + 1}/${yaer} ${hour}:${minutes}`
 
     return stg
 }
