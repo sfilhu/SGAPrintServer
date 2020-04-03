@@ -6,7 +6,7 @@ const axios =  require('axios')
 
 const printSerialPort = async (list, osPort) => {
     
-    const { data, usuario, aposta, observacao, url, lengthEvents } = list;
+    const { data, usuario, aposta, observacao, url, lengthEvents, hash } = list;
 
     const serialDeviceOnWindows = new escpos.SerialPort(osPort);
     const options = { encoding: "ISO 8859-1" }
@@ -42,12 +42,11 @@ const printSerialPort = async (list, osPort) => {
     serialDeviceOnWindows.open( async function () {
         await printer
             .size(2)
-            .align('CT')
+            .align('LT')
             .font('A')
             .text(`${removerAcentos(usuario.nome_banca)}`)
             .text(today())
             .text(`${removerAcentos(usuario.nome_cidade)}`)
-            .text(' ')
             .align('LT')
             .text(`Codigo.: ${aposta.id}`)
             .text(`Cliente: ${removerAcentos(aposta.apostador)}`)
@@ -64,11 +63,17 @@ const printSerialPort = async (list, osPort) => {
             .text(`Retorno Possivel: R$ ${aposta.valor_premio}`)
             .text('-----------------------------')
             .text(' ')
-            .align('CT')
+            .align('LT')
             .text(removerAcentos(observacao).replace(/(\r\n|\n|\r)/gm, "").split('<br />'))
             .text(' ')
             .text('AS REGRAS ESTAO DISPONIVEIS NO SITE:')
             .text(url)
+            .text(' ')
+            .text(' ')
+            .text(hash)
+            .text(' ')
+            .text(' ')
+            .align('CT')
             .qrimage('', function(){
                 this.cut();
                 this.close();

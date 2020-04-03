@@ -17,7 +17,7 @@ console.log(escpos)
 const today = require('./format-date')
 
 const printUSB = (list) => {
-    const { data, usuario, aposta, observacao, url, lengthEvents } = list;
+    const { data, usuario, aposta, observacao, url, lengthEvents, hash } = list;
     console.log(data.length)
     function removerAcentos( newStringComAcento ) {
         var string = newStringComAcento;
@@ -51,12 +51,11 @@ const printUSB = (list) => {
         if(!erro) {
             printer
             .size(2)
-            .align('CT')
+            .align('LT')
             .font('A')
             .text(`${removerAcentos(usuario.nome_banca)}`)
             .text(today())
             .text(`${removerAcentos(usuario.nome_cidade)}`)
-            .text(' ')
             .align('LT')
             .text(`Codigo.: ${aposta.id}`)
             .text(`Cliente: ${removerAcentos(aposta.apostador)}`)
@@ -73,11 +72,17 @@ const printUSB = (list) => {
             .text(`Retorno Possivel: R$ ${aposta.valor_premio}`)
             .text('-----------------------------')
             .text(' ')
-            .align('CT')
+            .align('LT')
             .text(removerAcentos(observacao).replace(/(\r\n|\n|\r)/gm, "").split('<br />'))
             .text(' ')
             .text('AS REGRAS ESTAO DISPONIVEIS NO SITE:')
             .text(url)
+            .text(' ')
+            .text(' ')
+            .text(hash)
+            .text(' ')
+            .text(' ')
+            .align('CT')
             .qrimage('', function(){
                 this.cut();
                 this.close();
