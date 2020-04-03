@@ -3,40 +3,48 @@ const routes  = require('express').Router();
 const storage = require('electron-json-storage');
 const uniqid  = require('uniqid');
 const print   = require('./print');
+const formatDate = require('./print/format-date.js');
 
 // 
 //  GET
 // 
 routes.get('/cupons', async (req, res) => {
     storage.get('cupons', function(error, data) {
-        
         if (error) throw error;
         return res.json({ 'cupons': data })
     });
-});
+}); 
 
 
 // 
 //  POST
 // 
 routes.post('/cupons', async (req, res) => {
-    const { data, name } = req.body
+    const { ligasEventos, aposta, usuario, observacao, url } = req.body;
+    console.log(req.body)
+    const data = await ligasEventos.map( item => [
+        { text: `\n[ ${item.nome_liga} ]`, align:"LEFT", width: 1},
+        { text: `\n${item.times}`, align:"LEFT", width: 0.99 },
+        { text: `\n${formatDate(item.data_evento)} / ${item.multiplicador_odd}`, align:"LEFT", width: 0.99 },
+        { text: `\n-----------------------------`, align:"LEFT", width: 0.99 }
+    ])
 
-    console.log({ data, name })
+    let newligasEventos = [];
 
-    storage.get('cupons', function(error, listCupons) {
+    for( let i = 0; i < data.length; i++) {
+        newligasEventos = newligasEventos.concat(data[i])
+    }
+
+    storage.get('cupons', async function(error, listCupons) {
         if (error) throw error;
-        const cupom = { 
+        const cupom = await { 
             id : uniqid(), 
-            data:  data.map( item => {
-                return [
-                  { text: `\n[ ${item.match.name_tournament} ]`, align:"LEFT", width: 0.99},
-                  { text: `\n${item.match.competidor1} x ${item.match.competidor2}`, align:"LEFT", width: 0.99 },
-                  { text: `\n${item.match.date} ${item.match.hour} / [ ${item.odd.oddPrice} ]`, align:"LEFT", width: 0.99 },
-                  { text: `\n-----------------------------`, align:"LEFT", width: 0.99 },
-                ]
-            }), 
-            name,
+            data: newligasEventos, 
+            aposta,
+            usuario,
+            observacao,
+            url,
+            lengthEvents: ligasEventos.length,
             createAt: Date()
         }
         

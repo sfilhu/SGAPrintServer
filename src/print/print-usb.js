@@ -1,47 +1,83 @@
 const escpos  = require('escpos');
 escpos.USB    = require('escpos-usb');
 const device  = new escpos.USB()
+
+if(device) {
+    console.log(1)
+} else {
+    console.log(2)
+}
+
+
 const options = { encoding: "GB18030" /* default */ }
 const printer = new escpos.Printer(device, options);
 
+console.log(escpos)
 
 const today = require('./format-date')
 
 const printUSB = (list) => {
+    const { data, usuario, aposta, observacao, url, lengthEvents } = list;
+    console.log(data.length)
+    function removerAcentos( newStringComAcento ) {
+        var string = newStringComAcento;
+          var mapaAcentosHex 	= {
+            a : /[\xE0-\xE6]/g,
+            A : /[\xC0-\xC6]/g,
+            e : /[\xE8-\xEB]/g,
+            E : /[\xC8-\xCB]/g,
+            i : /[\xEC-\xEF]/g,
+            I : /[\xCC-\xCF]/g,
+            o : /[\xF2-\xF6]/g,
+            O : /[\xD2-\xD6]/g,
+            u : /[\xF9-\xFC]/g,
+            U : /[\xD9-\xDC]/g,
+            c : /\xE7/g,
+            C : /\xC7/g,
+            n : /\xF1/g,
+            N : /\xD1/g,
+          };
+      
+          for ( var letra in mapaAcentosHex ) {
+              var expressaoRegular = mapaAcentosHex[letra];
+              string = string.replace( expressaoRegular, letra );
+          }
+      
+          return string;
+      }
+
+
     device.open( function(erro) {
         if(!erro) {
             printer
             .size(2)
             .align('CT')
             .font('A')
-            .text('SGA Bet')
+            .text(`${removerAcentos(usuario.nome_banca)}`)
             .text(today())
-            .text('Recife - PE')
+            .text(`${removerAcentos(usuario.nome_cidade)}`)
             .text(' ')
             .align('LT')
-            .text(`Codigo.: ${'1234567'}`)
-            .text(`Cliente: ${list.name}`)
-            .text(`Agente.: ${'Banca Veja 3'}`)
-            .text(`Fone...: ${'(81) 9999-999'}`)
-            .text(`Tipo...: ${'Casadinha'}`)
+            .text(`Codigo.: ${aposta.id}`)
+            .text(`Cliente: ${removerAcentos(aposta.apostador)}`)
+            .text(`Agente.: ${removerAcentos(usuario.nome_usuario)}`)
+            .text(`Fone...: ${usuario.telefone}`)
+            .text(`Cel....: ${usuario.celular}`)
+            .text(`Tipo...: ${ data.length == 1 ? 'Simples' : 'Casadinha' } ${ aposta.impresso == 1 ? ' - 2º via' : '' } ${ aposta.origem == 7 ? ' - Validacao' : '' }` )
             .text('-----------------------------')
-            .tableCustom(list.data[0])
+            .tableCustom(data)
             .align('LT')
-            .text(`Qtd Eventos.....: ${'2'}`)
-            .text(`Multiplicador...: ${'16'}`)
-            .text(`Valor Apostado..: R$ ${'3.00'}`)
-            .text(`Retorno Possivel: R$ ${'100.00'}`)
+            .text(`Qtd Eventos.....: ${lengthEvents}`)
+            .text(`Multiplicador...: ${aposta.multiplicador}`)
+            .text(`Valor Apostado..: R$ ${aposta.valor}`)
+            .text(`Retorno Possivel: R$ ${aposta.valor_premio}`)
             .text('-----------------------------')
             .text(' ')
             .align('CT')
-            .text('PAGAMENTO DE PREMIOS EM 48H')
-            .text('( Consulte regras )')
-            .text(' ')
-            .text('Acompanhe sua aposta pelo app BetEsportivo')
-            .text('ou pelo site www.[host_name].com.br')
+            .text(removerAcentos(observacao).replace(/(\r\n|\n|\r)/gm, "").split('<br />'))
             .text(' ')
             .text('AS REGRAS ESTAO DISPONIVEIS NO SITE:')
-            .text('www.[host_name].com.br')
+            .text(url)
             .qrimage('', function(){
                 this.cut();
                 this.close();

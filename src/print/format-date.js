@@ -1,4 +1,4 @@
-const stringDate = () => {
+const stringDate = (date_custom) => {
     // Month
     const months =  {
         0: 'janeiro',
@@ -26,7 +26,7 @@ const stringDate = () => {
         6: 'Sabado',
     }
 
-    const date    = new Date()
+    const date    = date_custom ? new Date(date_custom) : new Date()
     const day     = date.getDate()
     const yaer    = date.getFullYear()
     const hour    = date.getHours()
