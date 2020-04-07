@@ -6,8 +6,8 @@ console.log(123)
 
 // require('dotenv').config();
 const express  = require('express');
-//const fs       = require('fs');
-//const path     = require('path');
+const fs       = require('fs');
+const path     = require('path');
 // const morgan   = require('morgan');
 // const cors     = require('cors');
 const routes   = require('./routes');
@@ -16,10 +16,10 @@ const app      = new express();
 // const dist     = require('electron').remote.app;
 //const dirDocuments = dist.getPath('documents');
 
-//const httpsOpt = {
-//  cert : fs.readFileSync(path.join(dirDocuments, 'SGAPrintServer', 'dist_electron', 'bundled','ssl', 'cert.pem')),
-//  key  : fs.readFileSync(path.join(dirDocuments, 'SGAPrintServer', 'dist_electron', 'bundled','ssl', 'key.pem'))
-//}
+const httpsOpt = {
+ cert : fs.readFileSync(path.join(__dirname,'ssl', 'cert.pem')),
+ key  : fs.readFileSync(path.join(__dirname,'ssl', 'key.pem'))
+}
 
 app
 // .use(cors())
@@ -33,7 +33,8 @@ app
 // })
 .use(routes)
 
-const server = require('http').Server(app);
+
+const server = require('https').Server(httpsOpt, app);
 server.listen(3001)
 
 // Vue.config.productionTip = false
