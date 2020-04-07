@@ -1,7 +1,7 @@
 'use strict';
 const routes  = require('express').Router();
 // const uniqid  = require('uniqid');
-// const print   = require('./print');
+//const print   = require('./print');
 // const formatDate = require('./print/format-date.js');
 
 // 
@@ -47,7 +47,7 @@ routes.post('/cupons', async (req, res) => {
     //     createAt: Date()
     // }
    
-    // print(cupom);
+    //print(cupom);
     // listCupons.push(cupom);
 
     return res.json(req.body)
