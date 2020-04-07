@@ -5,45 +5,24 @@
   "license": "UNLICENSED",
   "version": "0.1.0",
   "private": true,
+  "main": "main.js",
   "scripts": {
+    "start": "node ./src/main.js",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint",
-    "electron:build": "vue-cli-service electron:build",
-    "electron:serve": "vue-cli-service electron:serve",
-    "postinstall": "electron-builder install-app-deps",
-    "postuninstall": "electron-builder install-app-deps"
+    "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "axios": "^0.19.2",
-    "core-js": "^3.6.4",
-    "core-util-is": "^1.0.2",
-    "cors": "^2.8.5",
-    "dotenv": "^8.2.0",
-    "electron-json-storage": "^4.1.8",
-    "escpos": "^3.0.0-alpha.3",
-    "escpos-serialport": "^3.0.0-alpha.2",
-    "escpos-usb": "^3.0.0-alpha.2",
     "express": "^4.17.1",
-    "morgan": "^1.10.0",
-    "node-sass": "^4.13.1",
-    "nodemon": "^2.0.2",
-    "sass-loader": "^8.0.2",
-    "serialport": "^8.0.7",
-    "uniqid": "^5.2.0",
-    "usb": "^1.6.2",
-    "vue": "^2.6.11",
-    "vue-material": "^1.0.0-beta-11"
+    "vue": "^2.6.11"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.2.3",
     "@vue/cli-plugin-eslint": "^4.2.3",
     "@vue/cli-service": "^4.2.3",
     "babel-eslint": "^10.0.3",
-    "electron": "^6.0.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.1.2",
-    "vue-cli-plugin-electron-builder": "^1.4.6",
     "vue-template-compiler": "^2.6.11"
   },
   "eslintConfig": {
@@ -63,6 +42,5 @@
   "browserslist": [
     "> 1%",
     "last 2 versions"
-  ],
-  "main": "background.js"
+  ]
 }
