@@ -27,7 +27,6 @@
 </template>
 
 <script>
-  
   export default {
     name: 'App',
     data: () => {
@@ -37,15 +36,7 @@
         }]
       }
     },
-
     mounted() {
-      this.checkCupons();
-    },
-
-    methods: {
-      checkCupons: function() {
-        console.log(123)
-      }
     }
   }
 </script>
