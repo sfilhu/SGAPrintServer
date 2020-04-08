@@ -27,33 +27,24 @@
 </template>
 
 <script>
-  const storage = require('electron-json-storage');
   
   export default {
     name: 'App',
     data: () => {
       return {
-        list: []
+        list: [{
+          name: 'teste'
+        }]
       }
     },
 
     mounted() {
       this.checkCupons();
-      
-      const _this = this;
-      storage.get('cupons', function(err, data) {
-        _this.list = data
-      })
     },
 
     methods: {
       checkCupons: function() {
-        storage.get('cupons', function(error, data) {
-          if (error) throw error;
-          if(!data.cupons || data.length == 0) {
-            storage.set('cupons', [])
-          }
-        });
+        console.log(123)
       }
     }
   }
