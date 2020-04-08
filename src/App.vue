@@ -1,7 +1,6 @@
 <template>
   <div id="app">
-    OI
-    <!-- <header>
+    <header>
       <div class="logo bg"></div>
       <h1>Painel de controle</h1>
     </header>
@@ -23,7 +22,7 @@
         </ul>
         
       </section>
-    </div> -->
+    </div>
   </div>
 </template>
 
@@ -51,7 +50,7 @@
   }
 </script>
 
-<!-- 
+
 <style lang="sass">
   @import './style/index.sass';
-</style> -->
+</style>

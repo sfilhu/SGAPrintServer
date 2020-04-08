@@ -9,6 +9,7 @@
   "scripts": {
     "start": "node ./src/main.js",
     "serve": "vue-cli-service serve",
+    "api" : "node ./src/service/",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
