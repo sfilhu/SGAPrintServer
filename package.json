@@ -25,6 +25,8 @@
     "escpos-usb": "^3.0.0-alpha.2",
     "express": "^4.17.1",
     "morgan": "^1.10.0",
+    "node-sass": "^4.13.1",
+    "sass-loader": "^8.0.2",
     "serialport": "^8.0.7",
     "uniqid": "^5.2.0",
     "usb": "^1.6.2",
