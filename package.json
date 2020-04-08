@@ -15,11 +15,18 @@
   "dependencies": {
     "@babel/register": "^7.9.0",
     "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "escpos": "^3.0.0-alpha.3",
+    "escpos-serialport": "^3.0.0-alpha.2",
+    "escpos-usb": "^3.0.0-alpha.2",
     "express": "^4.17.1",
     "morgan": "^1.10.0",
     "serialport": "^8.0.7",
     "uniqid": "^5.2.0",
-    "vue": "^2.6.11"
+    "usb": "^1.6.2",
+    "vue": "^2.6.11",
+    "vue-material": "^1.0.0-beta-11",
+    "write-file-atomic": "^3.0.3"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.9.5",

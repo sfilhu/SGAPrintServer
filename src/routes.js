@@ -1,18 +1,14 @@
 'use strict';
 const routes  = require('express').Router();
 // const uniqid  = require('uniqid');
-//const print   = require('./print');
+// const print   = require('./print');
 // const formatDate = require('./print/format-date.js');
 
 // 
 //  GET
 // 
-routes.get('/', async (req, res) => {
-    return res.send('Tudo certo')
-    // storage.get('cupons', function(error, data) {
-    //     if (error) throw error;
-    //     return res.json({ 'cupons': data })
-    // });
+routes.get('/cupons', async (req, res) => {
+    return res.json({})
 }); 
 
 
@@ -21,7 +17,7 @@ routes.get('/', async (req, res) => {
 // 
 routes.post('/cupons', async (req, res) => {
     // const { ligasEventos, aposta, usuario, observacao, url, hash } = req.body;
-     console.log(req.body)
+    console.log(req.body)
     // const data = await ligasEventos.map( item => [
     //     { text: `\n[ ${item.nome_liga} ]`.substring(0, 42), align:"LEFT", width: 1},
     //     { text: `\n${item.times}`, align:"LEFT", width: 0.99 },
@@ -31,11 +27,10 @@ routes.post('/cupons', async (req, res) => {
 
     // let newligasEventos = [];
 
-    //  for( let i = 0; i < data.length; i++) {
-    //      newligasEventos = newligasEventos.concat(data[i])
-    //  }
-
-    //  const cupom = await { 
+    // for( let i = 0; i < data.length; i++) {
+    //     newligasEventos = newligasEventos.concat(data[i])
+    // }
+    // const cupom = await { 
     //     id : uniqid(), 
     //     data: newligasEventos, 
     //     aposta,
@@ -46,28 +41,21 @@ routes.post('/cupons', async (req, res) => {
     //     lengthEvents: ligasEventos.length,
     //     createAt: Date()
     // }
-   
-    //print(cupom);
+    
+    // print(cupom);
     // listCupons.push(cupom);
 
     return res.json(req.body)
+});
 
- });
 
-
-  
- //  DELETE
-  
-//  routes.delete('/cupons/:id', async (req, res) => {
-//      storage.get('cupons', function(error, listCupons) {
-//          if (error) throw error;
-//          const { id } = req.params;
-//          const newStorage = listCupons.filter( item => item.id != id)
-//          storage.set('cupons', newStorage, function(error) {
-//              if (error) throw error;
-//              return res.json({ 'cupons': newStorage })
-//          }); 
-//      });
-//  })
+// 
+//  DELETE
+// 
+routes.delete('/cupons/:id', async (req, res) => {
+    const { id } = req.params;
+    const newStorage = [].filter( item => item.id != id)
+    return res.json({ 'cupons': newStorage })
+})
 
 module.exports = routes;
