@@ -29,4 +29,4 @@ const httpsOpt = {
   
   console.log(123)
   const server = require('https').Server(httpsOpt, app);
-  server.listen(3001)
+  server.listen(process.env.PORT || 3001)
