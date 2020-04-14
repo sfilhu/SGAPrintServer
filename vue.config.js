@@ -21,27 +21,18 @@ module.exports = {
 
       builderOptions: {
         appId: 'sgaprinterserver.com',
+        productName: 'SGA Print Server',
         mac: {
           icon: 'public/logo-512x512.png',
           target: ["default"]
         },
         win: {
           icon: 'public/logo-256x256.ico'
+        },
+        linux: {
+          category: 'Utility',
         }
       }
     }
   }
 }
-
-
-// "build": {
-//   "extraResources": [
-//     {
-//       "from": "./cert.pem",
-//       "to": "cert.pem",
-//       "filter": [
-//         "**/*"
-//       ]
-//     }
-//   ]
-// },
