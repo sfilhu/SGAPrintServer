@@ -31,13 +31,11 @@ module.exports = {
         },
         linux: {
           category: 'Utility',
-          arch: [
-            'x64'
-          ],
           target: [
-            'deb',
-            'AppImage',
-            'tar.gz'
+            {
+              target: 'deb',
+              arch: ['x64','ia32'],
+            }
           ]
         }
       }
