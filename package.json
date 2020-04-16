@@ -1,0 +1,36 @@
+{
+  "name": "electron-quick-start",
+  "version": "1.0.0",
+  "description": "A minimal Electron application",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "rebuild:serialport": "electron-rebuild -f -w serialport"
+  },
+  "repository": "https://github.com/electron/electron-quick-start",
+  "keywords": [
+    "Electron",
+    "quick",
+    "start",
+    "tutorial",
+    "demo"
+  ],
+  "author": "Sergio Ramos",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "^8.2.2",
+    "electron-rebuild": "^1.10.1"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "escpos": "^3.0.0-alpha.3",
+    "escpos-serialport": "^3.0.0-alpha.2",
+    "escpos-usb": "^3.0.0-alpha.2",
+    "express": "^4.17.1",
+    "loader": "^2.1.1",
+    "morgan": "^1.10.0",
+    "uniqid": "^5.2.0",
+    "usb": "^1.6.3"
+  }
+}

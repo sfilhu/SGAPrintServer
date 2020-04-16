@@ -1,0 +1,78 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/home/ubuntu/.nvm/versions/node/v6.1.0/bin/node',
+1 verbose cli   '/home/ubuntu/.nvm/versions/node/v6.1.0/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   '8.6.0' ]
+2 info using npm@3.8.6
+3 info using node@v6.1.0
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readLocalPackageData
+7 silly fetchPackageMetaData 8.6.0
+8 silly fetchNamedPackageData 8.6.0
+9 silly mapToRegistry name 8.6.0
+10 silly mapToRegistry using default registry
+11 silly mapToRegistry registry https://registry.npmjs.org/
+12 silly mapToRegistry data Result {
+12 silly mapToRegistry   raw: '8.6.0',
+12 silly mapToRegistry   scope: null,
+12 silly mapToRegistry   name: '8.6.0',
+12 silly mapToRegistry   rawSpec: '',
+12 silly mapToRegistry   spec: 'latest',
+12 silly mapToRegistry   type: 'tag' }
+13 silly mapToRegistry uri https://registry.npmjs.org/8.6.0
+14 verbose request uri https://registry.npmjs.org/8.6.0
+15 verbose request no auth needed
+16 info attempt registry request try #1 at 9:52:45 PM
+17 verbose request id e34ab478970826af
+18 http request GET https://registry.npmjs.org/8.6.0
+19 http 200 https://registry.npmjs.org/8.6.0
+20 verbose headers { date: 'Wed, 15 Apr 2020 21:52:52 GMT',
+20 verbose headers   'content-type': 'application/json; charset=UTF-8',
+20 verbose headers   'transfer-encoding': 'chunked',
+20 verbose headers   connection: 'keep-alive',
+20 verbose headers   'set-cookie': [ '__cfduid=d9fb6f38c4f32681e72cdf88c166b9eed1586987571; expires=Fri, 15-May-20 21:52:51 GMT; path=/; domain=.npmjs.org; HttpOnly; SameSite=Lax' ],
+20 verbose headers   'cf-ray': '5848e561aafef693-GRU',
+20 verbose headers   'cache-control': 'public, max-age=300',
+20 verbose headers   etag: 'W/"7a4a3fbed50851719ea381bf332674d7"',
+20 verbose headers   'last-modified': 'Sat, 26 May 2018 14:11:03 GMT',
+20 verbose headers   vary: 'accept-encoding, accept',
+20 verbose headers   'cf-cache-status': 'MISS',
+20 verbose headers   'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+20 verbose headers   server: 'cloudflare',
+20 verbose headers   'content-encoding': 'gzip',
+20 verbose headers   'cf-request-id': '02216db1090000f69381a12200000001' }
+21 silly get cb [ 200,
+21 silly get   { date: 'Wed, 15 Apr 2020 21:52:52 GMT',
+21 silly get     'content-type': 'application/json; charset=UTF-8',
+21 silly get     'transfer-encoding': 'chunked',
+21 silly get     connection: 'keep-alive',
+21 silly get     'set-cookie': [ '__cfduid=d9fb6f38c4f32681e72cdf88c166b9eed1586987571; expires=Fri, 15-May-20 21:52:51 GMT; path=/; domain=.npmjs.org; HttpOnly; SameSite=Lax' ],
+21 silly get     'cf-ray': '5848e561aafef693-GRU',
+21 silly get     'cache-control': 'public, max-age=300',
+21 silly get     etag: 'W/"7a4a3fbed50851719ea381bf332674d7"',
+21 silly get     'last-modified': 'Sat, 26 May 2018 14:11:03 GMT',
+21 silly get     vary: 'accept-encoding, accept',
+21 silly get     'cf-cache-status': 'MISS',
+21 silly get     'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+21 silly get     server: 'cloudflare',
+21 silly get     'content-encoding': 'gzip',
+21 silly get     'cf-request-id': '02216db1090000f69381a12200000001' } ]
+22 verbose get saving 8.6.0 to /home/ubuntu/.npm/registry.npmjs.org/8.6.0/.cache.json
+23 verbose correctMkdir /home/ubuntu/.npm correctMkdir not in flight; initializing
+24 verbose stack TypeError: Cannot convert undefined or null to object
+24 verbose stack     at pickVersionFromRegistryDocument (/home/ubuntu/.nvm/versions/node/v6.1.0/lib/node_modules/npm/lib/fetch-package-metadata.js:121:29)
+24 verbose stack     at /home/ubuntu/.nvm/versions/node/v6.1.0/lib/node_modules/npm/node_modules/iferr/index.js:13:50
+24 verbose stack     at /home/ubuntu/.nvm/versions/node/v6.1.0/lib/node_modules/npm/lib/utils/pulse-till-done.js:19:8
+24 verbose stack     at saved (/home/ubuntu/.nvm/versions/node/v6.1.0/lib/node_modules/npm/lib/cache/caching-client.js:168:7)
+24 verbose stack     at /home/ubuntu/.nvm/versions/node/v6.1.0/lib/node_modules/npm/node_modules/graceful-fs/polyfills.js:210:7
+24 verbose stack     at FSReqWrap.oncomplete (fs.js:117:15)
+25 verbose cwd /home/ubuntu/Documents/electron-quick-start
+26 error Linux 5.3.0-28-generic
+27 error argv "/home/ubuntu/.nvm/versions/node/v6.1.0/bin/node" "/home/ubuntu/.nvm/versions/node/v6.1.0/bin/npm" "install" "8.6.0"
+28 error node v6.1.0
+29 error npm  v3.8.6
+30 error Cannot convert undefined or null to object
+31 error If you need help, you may report this error at:
+31 error     <https://github.com/npm/npm/issues>
+32 verbose exit [ 1, true ]
