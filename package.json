@@ -1,25 +1,19 @@
 {
-  "name": "electron-quick-start",
+  "name": "sga-print-serve",
   "version": "1.0.0",
-  "description": "A minimal Electron application",
   "main": "main.js",
+  "description": "SGA Print Serve",
+  "author": "Sérgio Ramos <sfilhu@gmail.com>",
+  "license": "MIT",
   "scripts": {
     "start": "electron .",
-    "rebuild:serialport": "electron-rebuild -f -w serialport"
-  },
-  "repository": "https://github.com/electron/electron-quick-start",
-  "keywords": [
-    "Electron",
-    "quick",
-    "start",
-    "tutorial",
-    "demo"
-  ],
-  "author": "Sergio Ramos",
-  "license": "CC0-1.0",
-  "devDependencies": {
-    "electron": "^8.2.2",
-    "electron-rebuild": "^1.10.1"
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "dist:all": "build",
+    "dist:mac": "electron-builder --mac",
+    "dist:windows": "electron-builder --windows",
+    "dist:linux": "electron-builder --linux",
+    "postinstall": "electron-builder install-app-deps"
   },
   "dependencies": {
     "cors": "^2.8.5",
@@ -30,7 +24,32 @@
     "express": "^4.17.1",
     "loader": "^2.1.1",
     "morgan": "^1.10.0",
+    "npm-run-all": "^4.1.5",
     "uniqid": "^5.2.0",
     "usb": "^1.6.3"
+  },
+  "devDependencies": {
+    "electron": "^8.2.2",
+    "electron-builder": "^22.4.1"
+  },
+  "build": {
+    "appId": "com.sga.printserver",
+    "productName": "Sga print server",
+    "mac": {
+      "target": [
+        {
+          "target" : "default"
+        }
+      ]
+    },
+    "linux": {
+      "category": "Utility",
+      "target": [
+        {
+          "target": "deb",
+          "arch": ["x64", "ia32"]
+        }
+      ]
+    }
   }
 }
